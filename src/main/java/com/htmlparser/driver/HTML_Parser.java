@@ -16,16 +16,53 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.cli.*;
 
 public class HTML_Parser {
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String args[]) throws IOException, ParseException {
 
 
-        String input_path = args[0];
-        String config_path = args[1];
-        String output_path = args[2];
+        String input_path;
+        String config_path;
+        String output_path;
 
+        Options Options = new Options();
+        Option optarg1 = Option.builder("i").optionalArg(true).numberOfArgs(1).build();
+        Option optarg2 = Option.builder("c").optionalArg(true).numberOfArgs(1).build();
+        Option optarg3 = Option.builder("o").optionalArg(true).numberOfArgs(1).build();
+        Options.addOption(optarg1);
+        Options.addOption(optarg2);
+        Options.addOption(optarg3);
+        CommandLineParser parser = new DefaultParser();
+        CommandLine cmd = parser.parse( Options, args);
+
+        if(cmd.hasOption("i")){
+
+            input_path = cmd.getOptionValue("i");
+        }
+        else
+        {
+            input_path = "/Users/prakarsh/Desktop/HTML_Parser/src/main/resources/HTML.html";
+        }
+
+        if(cmd.hasOption("c")){
+
+            config_path = cmd.getOptionValue("c");
+        }
+        else
+        {
+            config_path = "/Users/prakarsh/Desktop/HTML_Parser/src/main/resources/reference.conf";
+        }
+
+        if(cmd.hasOption("o")){
+
+            output_path = cmd.getOptionValue("o");
+        }
+        else
+        {
+            output_path = "/Users/prakarsh/Desktop/HTML_Parser/src/main/resources/output.json";
+        }
         File input = new File(input_path);
         Config conf = ConfigFactory.load(config_path);
         Document doc= Jsoup.parse(input,"UTF-8");
