@@ -10,8 +10,7 @@ Data parser takes in 3 inputs
 * Output data - Output file path as .json
 
 ##Configuration file
-
-```Hocon
+```
 buyer{
   xpath {
     name = "/html/body/table/tbody/tr[3]/td/table/tbody/tr[1]/td[1]/table/tbody/tr[8]/td[2]/font/strong"
@@ -32,6 +31,7 @@ required {
   property : [address , beds , baths]
 }
 ```
+
 ##Xpaths and Configuration file
 [XPath stands for XML Path Language. It uses a non-XML syntax to provide a flexible way of addressing (pointing to) different parts of an XML/HTML document.](https://developer.mozilla.org/en-US/docs/Web/XPath)
 
@@ -47,6 +47,7 @@ Project uses XPath to uniquely identify the address of an element in Web Page.
 ####```Disclaimer```
 
 Efficient way to implement XPath search is to go for relative paths while browsers provide absolute paths which are comparatively inefficient.
+
 ##Steps to fetch XPaths for information scraping from HTML file for generic users 
 * Load the HTML page in a Web Browser(Firefox , Chrome)
 * Inspect Element the HTML page
