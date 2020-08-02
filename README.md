@@ -79,7 +79,7 @@ Efficient way to implement XPath search is to go for relative paths while browse
      "email" : "testlead@gmail.com"
    }
 ```
-
-
+* In above example property address search is based upon constraint - ``` Property address mentioned by buyer may be a part of complete address or complete address of property . The address mentioned by the buyer is used to show the property details in lower half of the page.```
+* Therefore , ```Xpaths``` won't work here and custom search is implemented in the code to achieve the above problem's solution
 
 
