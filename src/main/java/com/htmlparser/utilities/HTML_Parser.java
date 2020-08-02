@@ -1,5 +1,4 @@
 package com.htmlparser.utilities;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import com.typesafe.config.ConfigList;
@@ -10,7 +9,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import us.codecraft.xsoup.Xsoup;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,115 +18,105 @@ import org.apache.commons.cli.*;
 
 public class HTML_Parser {
 
-    public static void main(String args[]) throws IOException, ParseException {
+
+    private String input_path;
+    private String config_path;
+    private String output_path;
+    private Config conf;
+    private Document doc;
+    private File file;
+
+    public HTML_Parser(String input_path,String config_path,String output_path) throws ParseException, IOException {
+
+        this.input_path=input_path;
+        this.config_path=config_path;
+        this.output_path=output_path;
+        this.file = new File(input_path);
+        this.conf = ConfigFactory.load(config_path);
+        this.doc= Jsoup.parse(this.file,"UTF-8");
+    }
+
+    public File getFile() {
+        return file;
+    }
+
+    public void setFile(File file) {
+        this.file = file;
+    }
 
 
-        String input_path;
-        String config_path;
-        String output_path;
 
-        Options Options = new Options();
-        Option optarg1 = Option.builder("i").optionalArg(true).numberOfArgs(1).build();
-        Option optarg2 = Option.builder("c").optionalArg(true).numberOfArgs(1).build();
-        Option optarg3 = Option.builder("o").optionalArg(true).numberOfArgs(1).build();
-        Options.addOption(optarg1);
-        Options.addOption(optarg2);
-        Options.addOption(optarg3);
-        CommandLineParser parser = new DefaultParser();
-        CommandLine cmd = parser.parse( Options, args);
+    private String XpathSearch(String key,Document doc,Config required_field_xpaths ){
 
-        if(cmd.hasOption("i")){
+        String required_field_xpath = required_field_xpaths.getValue(key).unwrapped().toString();
+        Elements required_field_element = Xsoup.compile(required_field_xpath).evaluate(doc).getElements();
+        String required_field_value = required_field_element.html();
+        return required_field_value;
 
-            input_path = cmd.getOptionValue("i");
+    }
+
+    private String CustomSearch(String key,Element body){
+
+        String key_val = null;
+        if(key.equals("address")){
+
+            Elements address = body.getElementsByAttributeValueMatching("style", "italic");
+            for (Element x : address) {
+
+                String pattern = x.html();
+                Pattern p = Pattern.compile("[0-9]{3,}.*");
+                Matcher matcher = p.matcher(pattern);
+
+                if (matcher.find()) {
+                    pattern = matcher.group();
+                    pattern = pattern.replace("\"", "");
+                }
+
+                Elements realtor = body.getElementsByAttributeValueMatching("href", "http://email.realtor.com.*");
+                for (Element y : realtor)
+                {
+                    String value = y.html();
+                    if (value.toLowerCase().contains(pattern.toLowerCase())) {
+                        key_val=value;
+                    }
+                }
+            }
+
         }
-        else
-        {
-            input_path = "/Users/prakarsh/Desktop/HTML_Parser/src/main/resources/HTML.html";
-        }
+        return key_val;
+    }
 
-        if(cmd.hasOption("c")){
+    public HashMap<String,String> Parser() throws IOException, ParseException {
 
-            config_path = cmd.getOptionValue("c");
-        }
-        else
-        {
-            config_path = "/Users/prakarsh/Desktop/HTML_Parser/src/main/resources/reference.conf";
-        }
 
-        if(cmd.hasOption("o")){
-
-            output_path = cmd.getOptionValue("o");
-        }
-        else
-        {
-            output_path = "/Users/prakarsh/Desktop/HTML_Parser/src/main/resources/output.json";
-        }
-        File input = new File(input_path);
-        Config conf = ConfigFactory.load(config_path);
-        Document doc= Jsoup.parse(input,"UTF-8");
         Element body = doc.body();
         HashMap<String,String> json_obj = new HashMap<String, String>();
-
-
         Config required_fields = conf.getConfig("required");
 
-
-        for( Map.Entry<String, ConfigValue> required_field : required_fields.entrySet()){
+        for( Map.Entry<String, ConfigValue> required_field : required_fields.entrySet())
+        {
 
             Config required_field_xpaths = conf.getConfig(required_field.getKey()+".xpath");
             ConfigList required_field_keys = required_fields.getList(required_field.getKey());
 
-            for( ConfigValue required_field_key : required_field_keys){
+            for(ConfigValue required_field_key : required_field_keys)
+            {
 
                 String key = required_field_key.unwrapped().toString();
-                json_obj.put(key,null);
-                if(required_field_xpaths.hasPath(key)){
+                String required_field_value = null;
 
-                    String required_field_xpath = required_field_xpaths.getValue(key).unwrapped().toString();
-                    Elements required_field_element = Xsoup.compile(required_field_xpath).evaluate(doc).getElements();
-                    String required_field_value = required_field_element.html();
-//                    System.out.println(required_field_value);
-                    json_obj.put(key,required_field_value);
-                }
+                json_obj.put(key,required_field_value);
+
+                if(required_field_xpaths.hasPath(key))
+                    required_field_value = XpathSearch(key,doc,required_field_xpaths);
                 else
-                {
-                    if(key.equals("address")){
-//                         fetching the property address
-                    Elements address = body.getElementsByAttributeValueMatching("style", "italic");
-                    for (Element x : address) {
-                        String pattern = x.html();
-                        Pattern p = Pattern.compile("[0-9]{3,}.*");
-                        Matcher matcher = p.matcher(pattern);
-                        if (matcher.find()) {
-                            pattern = matcher.group();
-                            pattern = pattern.replace("\"", "");
-                            }
-                        Elements realtor = body.getElementsByAttributeValueMatching("href", "http://email.realtor.com.*");
-                        for (Element y : realtor)
-                        {
-                        String value = y.html();
-                        if (value.toLowerCase().contains(pattern.toLowerCase())) {
-                            json_obj.put("address",value);
-                                }
-                            }
-                        }
+                    required_field_value = CustomSearch(key,body);
 
-                    }
-                }
+                json_obj.put(key,required_field_value);
             }
         }
 
-
-//
-        //Creating the ObjectMapper object
-        ObjectMapper mapper = new ObjectMapper();
-        String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json_obj);
-        System.out.println(jsonString);
-        FileWriter file = new FileWriter(output_path);
-        file.write(jsonString);
-        file.close();
-
-
+        return json_obj;
     }
 
 }

@@ -17,7 +17,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.htmlparser.utilities.HTML_Parser</mainClass>
+                            <mainClass>com.htmlparser.utilities.Client</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
