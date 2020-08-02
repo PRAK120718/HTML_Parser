@@ -1,4 +1,4 @@
-package com.parser.driver;
+package com.parser.utilities;
 
 import org.apache.commons.cli.ParseException;
 

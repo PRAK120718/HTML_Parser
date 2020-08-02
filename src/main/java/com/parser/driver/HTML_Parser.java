@@ -1,4 +1,5 @@
 package com.parser.driver;
+import com.parser.utilities.Parser;
 import com.parser.utilities.Search;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
@@ -42,7 +43,7 @@ public class HTML_Parser extends Parser implements Search {
 
 
 
-    public String XpathSearch(String key,Config required_field_xpaths ){
+    public String XpathSearch(String key, Config required_field_xpaths){
 
         String required_field_xpath = required_field_xpaths.getValue(key).unwrapped().toString();
         Elements required_field_element = Xsoup.compile(required_field_xpath).evaluate(doc).getElements();

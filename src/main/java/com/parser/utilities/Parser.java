@@ -1,10 +1,10 @@
-package com.parser.driver;
+package com.parser.utilities;
 
 import org.apache.commons.cli.ParseException;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class Parser implements Parsable{
+public class Parser implements Parsable {
     private String input_path;
 
     public String getInput_path() {

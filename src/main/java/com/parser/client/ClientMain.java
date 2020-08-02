@@ -1,9 +1,9 @@
 package com.parser.client;
 
-import com.parser.driver.Parser;
+import com.parser.utilities.Parser;
 import com.parser.utilities.CmdConfig;
 import com.parser.driver.HTML_Parser;
-import com.parser.utilities.JSONBuilder;
+import com.parser.driver.JSONBuilder;
 import org.apache.commons.cli.*;
 import java.io.IOException;
 import java.util.HashMap;
