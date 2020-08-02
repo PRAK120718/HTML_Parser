@@ -9,7 +9,7 @@ Data parser takes in 3 inputs
 * Configuration data - the information required and the Xpaths of information required
 * Output data - Output file path as .json
 
-##Configuration file
+## Configuration file
 ```
 buyer{
   xpath {
@@ -32,7 +32,7 @@ required {
 }
 ```
 
-##Xpaths and Configuration file
+## Xpaths and Configuration file
 [XPath stands for XML Path Language. It uses a non-XML syntax to provide a flexible way of addressing (pointing to) different parts of an XML/HTML document.](https://developer.mozilla.org/en-US/docs/Web/XPath)
 
 Xpaths are one of the quickest and efficient ways to scrap data from Web Pages.
@@ -42,19 +42,19 @@ Project uses XPath to uniquely identify the address of an element in Web Page.
 * For every data element you find ```XPath``` and generate data Objects
 * If Xpath not found for a data element, custom search additonal code implementation to the codebase is required .
 
-##Generally XPaths are sufficient to scrap information
+## Generally XPaths are sufficient to scrap information
 
-####```Disclaimer```
+#### ```Disclaimer```
 
 Efficient way to implement XPath search is to go for relative paths while browsers provide absolute paths which are comparatively inefficient.
 
-##Steps to fetch XPaths for information scraping from HTML file for generic users 
+## Steps to fetch XPaths for information scraping from HTML file for generic users 
 * Load the HTML page in a Web Browser(Firefox , Chrome)
 * Inspect Element the HTML page
 * Select the information you want to fetch using Arrow Selector 
 * Right click and copy the XPath for the element
 
-#Steps to Execute
+# Steps to Execute
 * Parser takes in 3 arguments where ```i``` denotes input file path, ```c``` denotes configuration file path,```o``` denotes output file path
 
 
