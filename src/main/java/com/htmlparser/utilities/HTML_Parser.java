@@ -1,4 +1,4 @@
-package com.htmlparser.driver;
+package com.htmlparser.utilities;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
