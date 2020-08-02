@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a649b97e-d0c6-4364-bb8a-de131b3008cc" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1fSZSBYkTc2kz8lTIys42W1jNV4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RunManager" selected="Application.HTML_Parser">
+    <configuration name="HTML_Parser" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.htmlparser.driver.HTML_Parser" />
+      <module name="HTML_Parser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.htmlparser.driver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HelloWorld" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.htmlparser.utilities.HelloWorld" />
+      <module name="HTML_Parser" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.htmlparser.utilities.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.HTML_Parser" />
+        <item itemvalue="Application.HelloWorld" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SbtLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/bitbucket/bounceetlprocessor" value="PREVIEW" />
+        <entry key="$USER_HOME$/bitbucket/data-quality/dataquality" value="PREVIEW" />
+        <entry key="$USER_HOME$/bitbucket/data_quality_service" value="PREVIEW" />
+        <entry key="$USER_HOME$/github/bounceetlprocessor" value="PREVIEW" />
+        <entry key="$USER_HOME$/github/google-keep/keep-clone" value="PREVIEW" />
+        <entry key="$USER_HOME$/github/play-samples-play-scala-hello-world-tutorial" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a649b97e-d0c6-4364-bb8a-de131b3008cc" name="Default Changelist" comment="" />
+      <created>1596213451544</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1596213451544</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="360" y="223" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1596214081446">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="360" y="223" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1596214081446" />
+    <state width="1750" height="261" key="GridCell.Tab.0.bottom" timestamp="1596345219380">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="261" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1596345219380" />
+    <state width="1750" height="261" key="GridCell.Tab.0.center" timestamp="1596345219379">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="261" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1596345219379" />
+    <state width="1750" height="261" key="GridCell.Tab.0.left" timestamp="1596345219378">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="261" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1596345219378" />
+    <state width="1750" height="261" key="GridCell.Tab.0.right" timestamp="1596345219380">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="1750" height="261" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1596345219380" />
+    <state x="551" y="206" width="689" height="708" key="find.popup" timestamp="1596301272743">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="551" y="206" width="689" height="708" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1596301272743" />
+    <state x="561" y="222" width="670" height="676" key="search.everywhere.popup" timestamp="1596275276100">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="561" y="222" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1596275276100" />
+  </component>
+</project>
