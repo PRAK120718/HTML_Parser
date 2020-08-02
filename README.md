@@ -82,4 +82,8 @@ Efficient way to implement XPath search is to go for relative paths while browse
 * In above example property address search is based upon constraint - ``` Property address mentioned by buyer may be a part of complete address or complete address of property . The address mentioned by the buyer is used to show the property details in lower half of the page.```
 * Therefore , ```Xpaths``` won't work here and custom search is implemented in the code to achieve the above problem's solution
 
+#### The code base currently supports HTML to JSON data scraping/parsing.
+#### The code base is scalable adhering to 4 pillars of OOP and may be extended for further possibilities.
+#### Would love to hear suggestions and feedbacks!!
+
 
