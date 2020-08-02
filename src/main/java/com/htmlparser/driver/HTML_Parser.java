@@ -21,8 +21,13 @@ public class HTML_Parser {
 
     public static void main(String args[]) throws IOException {
 
-        Config conf = ConfigFactory.load();
-        File input = new File("/Users/prakarsh/Desktop/HTML_Parser/src/main/resources/HTML.html");
+
+        String input_path = args[0];
+        String config_path = args[1];
+        String output_path = args[2];
+
+        File input = new File(input_path);
+        Config conf = ConfigFactory.load(config_path);
         Document doc= Jsoup.parse(input,"UTF-8");
         Element body = doc.body();
         HashMap<String,String> json_obj = new HashMap<String, String>();
@@ -82,7 +87,7 @@ public class HTML_Parser {
         ObjectMapper mapper = new ObjectMapper();
         String jsonString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(json_obj);
         System.out.println(jsonString);
-        FileWriter file = new FileWriter("/Users/prakarsh/Desktop/HTML_Parser/src/main/resources/output.json");
+        FileWriter file = new FileWriter(output_path);
         file.write(jsonString);
         file.close();
 
