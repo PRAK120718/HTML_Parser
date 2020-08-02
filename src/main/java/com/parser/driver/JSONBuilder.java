@@ -1,12 +1,13 @@
-package com.parser.utilities;
+package com.parser.driver;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.parser.utilities.Builder;
 
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class JSONBuilder extends Builder{
+public class JSONBuilder extends Builder {
 
     public JSONBuilder(String output_path){
         super(output_path);
