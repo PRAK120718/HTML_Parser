@@ -87,7 +87,7 @@ public class HTML_Parser extends Parser implements Search {
 
 
         Element body = doc.body();
-        HashMap<String,Object> json_obj = new HashMap<String, Object>();
+        HashMap<String,Object> obj = new HashMap<String, Object>();
         Config required_fields = conf.getConfig("required");
 
         for( Map.Entry<String, ConfigValue> required_field : required_fields.entrySet())
@@ -102,18 +102,18 @@ public class HTML_Parser extends Parser implements Search {
                 String key = required_field_key.unwrapped().toString();
                 String required_field_value = null;
 
-                json_obj.put(key,required_field_value);
+                obj.put(key,required_field_value);
 
                 if(required_field_xpaths.hasPath(key))
                     required_field_value = XpathSearch(key,required_field_xpaths);
                 else
                     required_field_value = CustomSearch(key,body);
 
-                json_obj.put(key,required_field_value);
+                obj.put(key,required_field_value);
             }
         }
 
-        return json_obj;
+        return obj;
     }
 
 }
